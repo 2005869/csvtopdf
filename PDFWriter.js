@@ -5,3 +5,5 @@ class PDFWriter{
         pdf.create(html, {}).toFile(filename)
     }
 }
+
+module.exports = PDFWriter;
