@@ -1,21 +1,26 @@
-var Reader = require('./Reader');
-var Processor = require('./Processor');
-var Table = require('./Table');
-var HtmlParser = require('./HtmlParser');
-var Writer = require('./Writer');
+var Reader = require('./classes/Reader');
+var Processor = require('./classes/Processor');
+var Table = require('./classes/Table');
+var HtmlParser = require('./classes/HtmlParser');
+var Writer = require('./classes/Writer');
+var PDFWriter = require('./classes/PDFWriter');
 
-var leitor = new Reader();
-var escritor = new Writer();
+var reader = new Reader();
+var writer = new Writer();
 
 async function main(){
-    var dados = await leitor.Read('./users.csv');
-    var dadosProcessados = Processor.Process(dados);
+    var data = await reader.Read('./users.csv');
+    var dataProcess = Processor.Process(data);
 
-    var usuarios = new Table(dadosProcessados);
+    var users = new Table(dataProcess);
     
-    var html = await HtmlParser.Parse(usuarios);
+    var html = await HtmlParser.Parse(users);
 
-    escritor.Write(Date.now() + '.html', html);
+    var filename = Date.now();
+
+    writer.Write(filename + '.html', html);
+
+    PDFWriter.WritePDF(filename + '.PDF', html);
 }
 
 main();

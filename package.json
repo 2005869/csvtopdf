@@ -1,0 +1,28 @@
+{
+  "name": "csvtopdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2005869/csvtopdf.git"
+  },
+  "keywords": [
+    "csv",
+    "pdf",
+    "convert"
+  ],
+  "author": "2005869",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2005869/csvtopdf/issues"
+  },
+  "homepage": "https://github.com/2005869/csvtopdf#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "html-pdf": "^3.0.1"
+  }
+}
